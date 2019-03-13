@@ -1,0 +1,10 @@
+$(".ts-admin-panel--bottom").
+  html("<div class='js__new-template js__spinner'>\
+         <span class='element-close element-close--inside remove-block' href='#'></span>\
+        <%= j render partial: '/template_system/content/form_block' %></div>");
+
+$.spinner.create();
+
+init_textarea();
+
+window.variables.panelBottom.trigger('TS.panel.bottom.update');

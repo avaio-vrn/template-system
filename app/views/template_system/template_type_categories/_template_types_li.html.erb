@@ -1,0 +1,5 @@
+<%= template_types.inject(''.html_safe) do |li, el| %>
+  <% li << content_tag(:li, data: { tt: el.id }, class: "temp-go js__type") do %>
+    <%= content_tag(:span, el.content_name) << content_tag(:i, 'ok', class: 'js__template-submit') %>
+  <% end %>
+<% end %>

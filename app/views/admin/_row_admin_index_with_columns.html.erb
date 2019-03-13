@@ -1,0 +1,10 @@
+<%= render @list_pages.partial_editing_buttons, item: template, add_actions: @list_pages.btn_actions %>
+<div class="path-0 path-6">
+  <%= template %>
+</div>
+
+<div class="path-6">
+<% @list_pages.columns.each do |col| %>
+  <%= content_tag :div, template.send(col)  %>
+<% end %>
+</div>

@@ -1,0 +1,39 @@
+<div class="editing" data-<%= data_name %>-id='<%= content.id %>' data-name='<%= data_name %>'>
+  <%= form_for content.image , html:{method: :post, "data-type" => :script, class: 'edit-image js__post-form'}, multipart: true, remote: true, url: "#" do |f| %>
+
+    <div class='path-3'>
+      <%= image_tag(f.object&.url('thumb'.to_sym), class: 'image-preview js__image-preview') %>
+    </div>
+    <div class='path-1'></div>
+    <div class='path-8'>
+      <%= label_tag :file, "Выберите файл:", class: 'f-a-label' %>
+      <div class="f-a-file-container">
+        <span class="button-mid">с компьютера</span>
+        <%= f.hidden_field :id %>
+        <%= f.file_field :file, class: 'f-a-file', accept: Files::Image::MIME_TYPES %>
+      </div>
+    </div>
+
+    <%= label_tag :values, "Подпись:", class: 'f-a-label' %>
+    <%= text_area_tag 'values[caption]', content.part_content_text[:caption], class: 'js__edit-textarea f-a-area', row:1 %>
+
+    <%= label_tag :values, "Описание (alt):", class: 'f-a-label' %>
+    <%= text_area_tag 'values[alt]', content.part_content_text[:alt], class: 'js__edit-textarea f-a-area', row:1 %>
+
+    <%= label_tag :type_image, "Размер изображения:", class: 'f-a-label'  %>
+    <%= select_tag 'values[size]', options_from_collection_for_select([['Мини(thumb)', :thumb],['Среднее', :medium],['Большое', :big], ['Оригинал(не рекоменд.)', :original]], :last, :first, content.part_content_text[:size]), {class: 'edit f-a-input'} %>
+
+    <%= label_tag :border_image, "Окaнтовка:", class: 'f-a-label'  %>
+    <%= select_tag 'values[border]', options_from_collection_for_select([['Нет', nil],['Одинарная', :brd1],['Двойная', :brd2]], :last, :first, content.part_content_text[:border]), {class: 'edit f-a-input'} %>
+
+    <%= label_tag :group, t(:img_group, scope: [:template_system, :tag_form]), class: 'f-a-label'  %>
+    <%= text_field_tag 'values[group]', content.part_content_text[:group] , class: 'edit f-a-input' %>
+
+    <label class="f-a-checkbox">
+      <%= check_box_tag 'values[zoom]', 1, !content.part_content_text[:zoom].blank? %>
+      <span class="f-a-checkbox-span"></span>
+      <span class='f-a-label'>Открывать в окне</span>
+    </label>
+
+  <% end %>
+</div>

@@ -1,0 +1,57 @@
+<%= content_for :admin_javascripts, javascript_include_tag(:template_types) %>
+
+<div class='path-12'>
+  <%= form_for([template_system, @template_type], html: { class: "form-add js__template-system" }, validate: true) do |f| %>
+    <%= render "form_errors", object: f.object %>
+
+    <div class="path-6">
+      <div class="f-a-left">
+        <%= f.label :template_type_category_id, class: "f-a-label" %>
+        <%= f.collection_select :template_type_category_id, TemplateSystem::TemplateTypeCategory.all,
+          :id, :content_name, { include_blank: true }, class: "f-a-input" %>
+
+        <%= f.label :content_name, class: "f-a-label" %>
+        <%= f.text_field :content_name, class: "f-a-input" %>
+
+        <%= f.label :render, class: "f-a-label" %>
+        <%= f.collection_select :render, TemplateSystem::TemplateType.uniq_partials_get, :first, :last, { include_blank: true }, class: "f-a-input" %>
+      </div>
+    </div>
+
+    <div class='path-6 padd-l'>
+      <div class='f-a-right'>
+        <%= f.label :html_class, class: "f-a-label"%>
+        <%= f.text_field :html_class, class: "f-a-input" %>
+
+        <%= f.label :svg_content, class: "f-a-label"%>
+        <%= f.text_area :svg_content, class: "f-a-input", rows: 6 %>
+      </div>
+    </div>
+
+    <div class="clearfloat"> </div>
+
+    <div class='template path-0'>
+      <%= f.fields_for :template_tags do |nested_f| %>
+        <%= render 'template_tag_fields', f:nested_f %>
+      <% end %>
+
+      <div class="tags-fields"></div>
+      <div class='clearfloat'> </div>
+
+
+      <%= f.fields_for :template_parts do |parts| %>
+        <%= render 'template_part_fields', f: parts %>
+      <% end %>
+
+      <div class="parts-fields"> </div>
+      <div class='clearfloat'> </div>
+    </div>
+
+    <%= link_to_add_association t(:new_tag, scope: ['template_system/template_types'.freeze, :buttons]).html_safe,
+      f, :template_tags, class: 'button-big button-big--l js__button-tag', data: { 'association-insertion-node' => '.tags-fields'} %>
+    <%= link_to_add_association  t(:new_part, scope: ['template_system/template_types'.freeze, :buttons]).html_safe,
+      f, :template_parts, class: 'button-big button-big--l js__button-part', data: { 'association-insertion-node' => '.parts-fields'} %>
+
+  <% end %>
+
+</div>

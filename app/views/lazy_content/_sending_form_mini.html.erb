@@ -1,0 +1,23 @@
+<%= form_for ContactForm.new, url: template_system.send_question_form_path, remote: true, validate: true, html: { class: 'template-form t-form-shadow t-form-mini form-label-trans' } do |f| %>
+  <div class='path-7 clfl'>
+    <div class='path-11'>
+      <div class='form-label-trans-rel'>
+        <%= f.label :contacts, class: 'label' %>
+        <%= f.text_field :contacts, class: 'template-input' %>
+      </div>
+    </div>
+    <div class='path-11 t-form-notice-ctn'>
+      <div class='form-label-trans-rel'>
+        <%= f.label :message, class: 'label' %>
+        <%= f.text_area :message, class: 'template-area', rows: 2 %>
+      </div>
+    </div>
+  </div>
+  <div class='path-4'>
+    <p class='template-form-notice'>
+      Вы можете отправить нам сообщение и мы свяжемся с Вами в ближайшее время.
+    </p>
+    <%= f.submit 'Отправить', class: 'template-submit' %>
+  </div>
+  <div class='back-img svg-aircraft'></div>
+<% end %>

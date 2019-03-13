@@ -1,0 +1,13 @@
+<%# just ERB  %>
+<% Array((@content&.contentable || @section)&.child_sections&.not_deleted&.ordering).each do |section| %>
+  <div class='card-cnt'>
+    <%= link_to section, class: 'card-link' do %>
+      <figure class='card-img-cnt image'>
+        <%= image_tag section.image&.url(:medium) %>
+      </figure>
+      <div class='card-title-cnt'>
+        <%= content_tag :p, section.content_name, class: 'card-title' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

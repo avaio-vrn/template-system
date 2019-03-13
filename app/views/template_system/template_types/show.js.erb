@@ -1,0 +1,6 @@
+$('.js__type-container').find('.temp-go--active').removeClass('temp-go--active')
+$('.js__type-container').find('*[data-tt="<%= @template_type.id %>"]').addClass('temp-go--active');
+
+$('.js__type-desc-container').html('<%= j render partial: 'template_type_description', locals: { object: @template_type} %>')
+
+newTemplateButtonsClick(false);

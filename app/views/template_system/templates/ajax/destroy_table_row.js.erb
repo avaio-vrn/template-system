@@ -1,0 +1,9 @@
+<% @templates.each do |template| %>
+  var ins = $(document).find("[data-t-id='<%= template.template.id %>']");
+  $(ins).html('<%=j render(local_assigns[:render_path] || "/template_system/templates/tag_admin", content: template) %>');
+
+  $(ins).find('.li-admin-stroke').li_admin_stroke_enter();
+  $(ins).append("<%=j render "admin/editing_buttons", item: template.template %>");
+<% end %>
+
+$('.content').trigger($.Event('resize')); 

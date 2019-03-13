@@ -1,0 +1,4 @@
+<%=  form_tag(template_system.template_system_create_table_block_template_path, class: 'form-add marg-lr', remote: true) do |f| %>
+  <%= text_area_tag :text, nil, class:'js__edit-textarea f-a-area', rows:1 %>
+  <%= submit_tag 'Добавить', class:'button-big js__submit' %>
+<% end %>

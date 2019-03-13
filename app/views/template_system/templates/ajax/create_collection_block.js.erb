@@ -1,0 +1,24 @@
+var $appendCollection;
+var new_block = $(document).find("[data-id='new']");
+var ul_block = $(new_block).closest('.template').find('ul');
+if (ul_block.length == 0) { ul_block = $(new_block).closest('.template').find('ol'); }
+
+<% template_collection.each do |item| %>
+  $appendCollection = $("<%= j content_tag(:li, (item.content_text.html_safe << render('admin/editing_buttons', item: item)),
+                                        class: 'js__content-editing content-editing li-admin-stroke',
+                                        data: { :'index' => item.row_num - 1, :'name' => 'ttc', :'ttc-id' => item.id }
+                                       ) %>");
+
+  $(ul_block).append($appendCollection);
+  <% if item.del %>
+    $appendCollection.addClass('delete-row');
+  <% end %>
+
+  $appendCollection.li_admin_stroke_enter();
+  iconsData.addAndInitIcons('<%= raw j item.template.json_for_icons_js(can?(:destroy, item.template), item.template.row_num - 1).to_json %>', ul_block, true);
+<% end %>
+
+$(new_block).remove();
+
+showButton(true)
+window.variables.panelBottom.trigger('TS.template.create');

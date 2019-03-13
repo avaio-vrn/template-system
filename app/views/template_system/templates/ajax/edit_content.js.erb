@@ -1,0 +1,48 @@
+var elem = $(document).find("[data-<%= data_name %>-id='<%= item.id %>']");
+var templ_elem = $(elem).closest('div.template').find(".edit-block")
+var css_classes = elem.attr("class");
+
+templ_elem.removeClass('edit-block-show');
+
+elem.replaceWith("<%= j render partial: "/template_system/templates/edit_tag_forms/#{content.template_tag.get_partial.to_s}", locals: {data_name: data_name, content: item } %>");
+
+<% if content.raw? %>
+  $('#raw_values').parent().css('min-height', '300px');
+  $('#raw_values').hide();
+<% end %>
+
+<% if content.template_tag.name == 'img' %>
+  if(($("div.editing").parent().height()<300) || ($("div.editing").parent().width()<150)){
+    $("div.editing").addClass("edit-abs");
+  }
+  $(".f-a-file").change(function(){
+    showPreviewImage(this);
+  });
+<% end %>
+
+$('.content').trigger($.Event('resize')); 
+
+$("div").find("[data-<%= data_name %>-id='<%= item.id %>']").addClass(css_classes);
+
+
+BackendData.set_data('<%= data_name %>', <%= item.id %>, <%= item.template.id %>);
+EditingFunc.buttons.add();
+
+$.spinner.remove();
+$.spinner.create('.editing', true);
+
+<% if content.raw? %>
+    if (typeof CKEDITOR == 'undefined'){
+      $.spinner.show();
+      $.getScript('/assets/ckeditor/init.js', function(){ CKEDITOR.replace('raw_values', { customConfig: '/assets/ckeditor/<%= content.ckeditor_config %>.js' })});
+    }
+    else{
+      CKEDITOR.replace('raw_values', { customConfig: '/assets/ckeditor/<%= content.ckeditor_config %>.js' });
+    }
+<% else %>
+    EditingFunc.load();
+<% end %>
+
+$.spinner.hide();
+
+

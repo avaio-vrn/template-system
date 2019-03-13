@@ -1,0 +1,10 @@
+$('.js__type-category-container').find('.temp-go--active').removeClass('temp-go--active')
+$('.js__type-category-container').find('*[data-ttc="<%= @template_type_category.id || 0 %>"]').addClass('temp-go--active');
+
+$('.js__type-container').find('ul').html('<%= j render partial: 'template_types_li', locals: { template_types: @template_types } %>')
+$('.js__type-container').find('li:first').addClass('temp-go--active');
+
+$('.js__type-desc-container').remove('.temp-ul');
+$('.js__type-desc-container').html('<%= j render partial: '/template_system/template_types/template_type_description', locals: { object: @template_types.first } %>')
+
+newTemplateButtonsClick(true);

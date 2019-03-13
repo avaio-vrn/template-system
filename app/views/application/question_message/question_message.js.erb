@@ -1,0 +1,11 @@
+$.magnificPopup.open({
+  items: {
+    src: '<%=j render @form_partial %>',
+    type: 'inline',
+    closeBtnInside: true
+  },
+  closeOnBgClick: false
+});
+
+$('form.magnific-form').enableClientSideValidations();
+formWithTerms();

@@ -1,0 +1,9 @@
+<div class="magnific-container">
+  <div class="magnific-title bg-clr2">
+    Любое замечание по работе сайта, предложение по его улучшению.
+  </div>
+  <%= form_for ContactForm.new, url: template_system.send_error_message_path, remote: true, html: { class: "magnific-form"} do |f| %>
+    <%= f.text_area :message, placeholder: "Ошибка, пожелание или любой отзыв", class: "magnific-area" %>
+    <%= f.submit "Сообщить", id:"submit", class: "magnific-submit" %>
+  <% end %>
+</div>

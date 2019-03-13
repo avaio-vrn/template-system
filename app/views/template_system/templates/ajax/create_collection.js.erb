@@ -1,0 +1,19 @@
+var new_block = function(){
+  var last = $('section .template:last-child')
+  if(last.length == 0) { return $('h1') }
+  else{ return last }
+}
+
+<% template_collection.each do |item| %>
+  var ins = $('<div class="template  admin-stroke"> </div>').insertAfter(new_block());
+  ins.html("<%= j render partial: '/template_system/templates/template_admin', locals: { template: item } %>");
+
+  ins.addClass("delete-block");
+  ins.attr("data-<%= data_name_parent %>-id","<%= item.id %>");
+
+  $(ins).find('.li-admin-stroke').li_admin_stroke_enter();
+  $(ins).admin_stroke_enter();
+  iconsData.addAndInitIcons('<%= raw j item.json_for_icons_js(can?(:destroy, item)).to_json %>', ins);
+<% end %>
+
+window.variables.panelBottom.trigger('TS.template.create');

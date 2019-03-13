@@ -1,0 +1,5 @@
+var ins = $(document).find("[data-<%= data_name %>-id='<%= item.id %>']");
+
+$(ins).html("<%= j render partial: '/template_system/templates/template_admin', locals: { template: item } %>");
+
+initIcons(ins);

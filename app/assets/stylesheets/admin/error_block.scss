@@ -1,0 +1,17 @@
+@import "../admin_variables";
+
+.error-block {
+  padding: 20px;
+  border: 1px solid #D24353;
+  background: #FFE5E7;
+}
+
+.error-title {
+  font-weight: normal;
+}
+
+.error-list {
+  padding: 0 0 0 40px;
+  margin: 10px 0 0 0;
+  font-size: .8em;
+}

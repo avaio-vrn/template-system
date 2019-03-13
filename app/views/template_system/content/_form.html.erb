@@ -1,0 +1,20 @@
+<div class="temp-wrap">
+  <%= hidden_field_tag :content_id, params[:id] %>
+  <div class="temp-part js__type-category-container">
+    <ul class="temp-ul">
+      <li class='temp-go js__type-category' data-ttc='0'><span>Часто используемые</span></li>
+      <%= @template_type_categories.inject(''.html_safe) do |li, el| %>
+        <% li << content_tag(:li, content_tag(:span, el.content_name), data: { ttc: el.id },
+                             class: "temp-go js__type-category") %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="temp-part js__type-container">
+    <ul class="temp-ul temp-ul--second">
+      <%= render partial: '/template_system/template_type_categories/template_types_li', locals: { template_types: @template_types } %>
+    </ul>
+  </div>
+  <div class="temp-part js__type-desc-container">
+    <%= render partial: '/template_system/template_types/template_type_description', locals: { object: @template_types.first } %>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="f-button--no-best danger-button" title="Опасно!"><span>Опасная функция</span></div>
+
+<div class="danger invisible">
+
+  <% if f.object.has_attribute? :id_str %>
+    <%= f.label :force_id_str, class:"f-a-label" %>
+    <%= f.text_field :force_id_str, class:"f-a-input" %>
+
+    <div class='path-6'>
+      <%= f.label :auto_force_id_str, class: "f-a-checkbox" do %>
+        <%= f.check_box :auto_force_id_str %>
+        <span class="f-a-checkbox-span"></span>
+        <%= content_tag :span, f.object.class.human_attribute_name(:auto_force_id_str), class: 'f-a-label' %>
+      <% end %>
+    </div>
+    <div class='path-6'>
+      <%= f.label :manual_force_id_str, class: "f-a-checkbox" do %>
+        <%= f.check_box :manual_force_id_str %>
+        <span class="f-a-checkbox-span"></span>
+        <%= content_tag :span, f.object.class.human_attribute_name(:manual_force_id_str), class: 'f-a-label' %>
+      <% end %>
+    </div>
+
+    <div class="div-hr"></div>
+  <% end %>
+
+  <% if current_user.admin? %>
+    <div class='template'>
+      <% if f.object.has_attribute? :row_num %>
+        <div class="f-a-padd-r">
+          <%= f.label :row_num, class:"f-a-label" %>
+          <%= f.number_field :row_num, class:"f-a-number" %>
+        </div>
+      <% end %>
+
+      <% if f.object.has_attribute? :del %>
+        <div class="f-a-padd-l">
+          <%= f.label :del, class: "f-a-checkbox" do %>
+            <%= f.check_box :del %>
+            <span class="f-a-checkbox-span"></span>
+            <%= content_tag :span, I18n.t(:del, scope: :attributes), class: 'f-a-label' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if local_assigns.has_key? :options %>
+      <div class="div-hr"></div>
+      <% options.each do |option| %>
+        <div class='template'>
+          <div class='path-0'>
+            <% if option[:field_type] == :check_box %>
+              <%= f.label option[:field], class: "f-a-checkbox" do %>
+                <%= f.check_box option[:field] %>
+                <span class="f-a-checkbox-span"></span>
+                <%= content_tag :span, f.object.class.human_attribute_name(option[:field]), class: 'f-a-label' %>
+              <% end %>
+            <% else %>
+              <%= f.label option[:field].to_sym, class: "f-a-label" %>
+              <% if option[:field_type] == :collection_select %>
+                <%= f.collection_select(option[:field], option[:collection], option[:value_method], option[:text_method], {}, class: option[:field_css_class]) %>
+              <% else %>
+                <%= f.send(option[:field_type], option[:field], class: option[:field_css_class]) %>
+                <div class="clearfloat"></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="clearfloat"></div>
+    <% end %>
+  <% end %>
+</div>

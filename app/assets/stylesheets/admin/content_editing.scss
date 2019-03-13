@@ -1,0 +1,154 @@
+@import "../admin_variables";
+
+.adminmode{
+  .content-editing {
+    min-height: 1em;
+    min-width: 50px;
+    padding: 0;
+    position: relative;
+    transition: background 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 0 3px transparentize($admin-yellow, 0.5);
+      background: transparentize($admin-yellow, 0.7);
+    }
+  }
+
+  h1.content-editing, .h2.content-editing, .h3.content-editing, .h4.content-editing, .h5.content-editing, .h6.content-editing,
+  p.content-editing, li.content-editing,
+  .content-link.content-editing, .content-button.content-editing {
+    cursor: text;
+  }
+
+  a.content-editing {
+    min-width: 10px;
+  }
+
+  .content-button.content-editing {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .editing.content-editing {
+    z-index: 600;
+    overflow: initial !important;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .content-editing.content-button {
+    padding: 0.3em 1.6em 0.4em 0.8em;
+  }
+
+  .editing.content-editing.content-button {
+    width: 25%;
+    padding: 10px 10px 0 10px;
+    color: #222;
+    border: 1px solid #333;
+    background: #FFF;
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      color: #222;
+      background: #FFF;
+    }
+
+    .f-a-area {
+      height: 60px;
+      margin: 5px 0 20px 0;
+    }
+  }
+
+  .editing.raw, .raw table, .table-headers, .table-headers--no{
+    overflow: initial;
+  }
+
+
+  span.content-editing, p.content-editing {
+    display: inline-block;
+  }
+
+  th.content-editing {
+    &:hover {
+      color: #222;
+    }
+  }
+
+  .edit-image {
+    max-width: 250px;
+    padding: 10px;
+    text-align: left;
+    line-height: 1.4em;
+    border: 1px solid #333;
+    background: #F0F0F0;
+
+    .f-a-area, .f-a-input {
+      margin: 5px 0 10px 0;
+    }
+  }
+
+  .edit-link {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #F0F0F0;
+
+    &:hover {
+      border: 1px solid #333;
+      background: #F0F0F0;
+    }
+
+    .f-a-area {
+      height: 60px;
+      margin: 5px 0 10px 0;
+    }
+
+    .button-mid {
+      width: 100%;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+  }
+
+  .edit-abs {
+    width: 200px;
+    max-width: 300px;
+    max-height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .content-area {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    resize: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    text-align: justify;
+    box-shadow: 0 0 0 3px transparentize($admin-green, 0.8);
+    background: transparentize($admin-green, 0.8);
+  }
+
+  .delete-block, .delete-block:hover, .delete-row {
+    background: transparentize($admin-red, 0.8);
+  }
+
+  li.delete-block {
+    box-shadow: 0 0 0 3px transparentize($admin-red, 0.8);
+  }
+
+  .no-delete-row {
+    background: #FFF;
+  }
+}

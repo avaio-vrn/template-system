@@ -1,0 +1,102 @@
+@import "../admin_variables";
+
+.invisible {
+  display: none;
+}
+
+.danger-button {
+  cursor: pointer;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+  background: #FFF;
+
+  span {
+    position: relative;
+    margin-left: 20px;
+
+    &:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: -25px;
+      border: 2px solid #ccc;
+      border-top-style: hidden;
+      border-left-style: hidden;
+      transform: rotate(45deg);
+      transition: all 0.2s ease;
+    }
+  }
+
+  &:hover {
+    border: 1px solid #d24353;
+    background: #d24353;
+    color: #FFF;
+
+    span:before {
+      border-color: #FFF;
+    }
+  }
+}
+
+.d-b-long {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: #FFF;
+  border: 1px solid #d24353;
+  background: #d24353;
+
+  span:before {
+    top: 8px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: hidden;
+    border-bottom-style: hidden;
+    border-color: #FFF;
+  }
+
+  &:hover {
+    color: #d24353;
+    background: #FFF;
+
+    span:before {
+      border-color: #d24353;
+    }
+  }
+}
+
+.danger {
+  padding: 20px;
+  border: 1px solid #d24353;
+  border-top-style: hidden;
+}
+
+.div-hr {
+  width: auto;
+  height: 1px;
+  margin: 10px 0;
+  background: #ccc;
+  clear: both;
+}
+
+.f-a-padd-r {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 10px 0 0;
+  border-right: 1px solid #ccc;
+}
+
+.f-a-padd-l {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 0 0 10px;
+}

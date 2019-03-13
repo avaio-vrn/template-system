@@ -1,0 +1,6 @@
+<%= content_for :h1, content_tag(:h1, @template_type.content_name, class: config_get(:html, :h1_class)) %>
+
+<h2 class='h2'>Используется на страницах</h2>
+<% @template_type.templates.map(&:content).uniq.compact.each do |content| %>
+  <%= content_tag :p, content.contentable.content_header, class: 'normal-txt' %>
+<% end %>

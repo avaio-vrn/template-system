@@ -1,0 +1,464 @@
+@import "admin_variables";
+
+.flashabove {
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 969;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .flash {
+    left: 0;
+    z-index: 970;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.flash {
+  width: 100%;
+  padding: 20px 20px 20px 56px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 950;
+  font-size: 16px;
+  line-height: 16px;
+  color: #222;
+  background: #ccc;
+  box-shadow: 0 -2px 2px rgba(0,0,0, 0.5);
+}
+
+.adminmode .flash {
+  position: relative;
+}
+
+.close-flash {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+
+  &:before, &:after {
+    content: "";
+    width: 2px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    background: #FFF;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    background: #FFF;
+
+    &:before, &:after {
+      background: #666;
+    }
+  }
+}
+
+.notice {
+  min-height: 16px;
+  position: relative;
+}
+
+.flash-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 13px;
+  left: 13px;
+
+  &:before, &:after {
+    content: '';
+    width: 4px;
+    display: block;
+    position: absolute;
+    background: #FFF;
+  }
+}
+
+.flash--apply {
+  background: $admin-green;
+
+  &:before {
+    height: 10px;
+    bottom: 5px;
+    left: 8px;
+    transform: rotate(-40deg);
+  }
+
+  &:after {
+    height: 20px;
+    bottom: 5px;
+    left: 16px;
+    transform: rotate(30deg);
+  }
+}
+
+.flash--alert, .flash--error {
+  border-radius: 50%;
+  background: $admin-red;
+
+  &:before {
+    height: 20px;
+    bottom: 5px;
+    left: 13px;
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    height: 20px;
+    bottom: 5px;
+    left: 13px;
+    transform: rotate(45deg);
+  }
+}
+
+.flash--info {
+  width: 0;
+  height: 0;
+  top: 14px;
+  left: 10px;
+  border: 18px solid transparent;
+  border-top-width: 0;
+  border-bottom: 28px solid $admin-yellow;
+
+  &:before {
+    height: 11px;
+    left: -2px;
+    top: 8px;
+    background: #000;
+  }
+
+  &:after {
+    height: 4px;
+    left: -2px;
+    top: 21px;
+    background: #000;
+  }
+}
+
+.flash-button {
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px 10px 0 0;
+  padding: 7px 20px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  background: $admin-blue;
+
+  &:hover {
+    color: #222;
+    background: #FFF;
+  }
+}
+
+@import "all_404_500";
+
+/* Login - Login - Login - Login - Login - Login - Login - Login - Login - Login - Login */
+.modal-form{
+  width: 100%;
+
+  .content-link{
+    position: relative;
+  }
+}
+
+.form-login {
+  width: 100%;
+  display: block;
+  padding: 10px;
+}
+
+.login-label {
+  display: inline-block;
+  max-width: 30em;
+  font-size: 0.9em;
+  font-style: italic;
+  padding-left: 10px;
+  line-height: 2em;
+}
+
+.login-input {
+  width: 100%;
+  max-width: 30em;
+  margin: 5px 0 20px 0;
+  padding: 10px;
+  border: 1px solid #666;
+  display: block;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+  background: #F2F2F2;
+
+  &:hover {
+    border: 1px solid #000;
+  }
+
+  &:focus {
+    color: #000;
+    border-color: #000;
+    box-shadow: 0 0 5px 0 $admin-green;
+    background: #FFF;
+  }
+}
+
+@import "checkbox";
+
+.login-button {
+  display: block;
+  padding: 10px 30px;
+  border: 1px solid #666;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Login - Login - Login - Login - Login - Login - Login - Login - Login - Login - Login */
+
+/* Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific */
+.mfp-wrap .mfp-inline-holder .mfp-content {
+  width: auto;
+}
+
+.magnific-container {
+  border: 1px solid #000;
+  display: block;
+  background: #FFF;
+}
+
+@media screen and (min-width: 720px){
+  .magnific-container{
+    width: 400px;
+  }
+}
+
+.mfp-content .mfp-figure .mfp-figure {
+  border: 1px solid #000;
+}
+
+.mfp-content .mfp-figure img.mfp-img {
+  padding: 0;
+}
+
+.mfp-wrap .magnific-container .mfp-close, .mfp-content .mfp-figure .mfp-close {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: block;
+  border: 1px solid #000;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  opacity: 1;
+  transition: all 0.2s ease 0s;
+  background: #FFF;
+  color: #222;
+  font-size: 36px;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.mfp-wrap .magnific-container .mfp-close:hover, .mfp-content .mfp-figure .mfp-close:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #000;
+}
+
+figcaption .mfp-bottom-bar {
+  margin: 0;
+}
+
+.magnific-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.magnific-title span {
+  display: block;
+  margin: 10px 0 0 0;
+  font-size: 10px;
+  font-style: italic;
+  color: #333;
+}
+
+.magnific-form {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
+
+.magnific-input {
+  width: 100%;
+  display: block;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  border: 1px solid #666;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease 0s;
+  background: #f2f2f2;
+}
+
+.magnific-area {
+  width: 100%;
+  height: 150px;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border: 1px solid #666;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease 0s;
+  background: #f2f2f2;
+}
+
+.magnific-input:focus, .magnific-area:focus {
+  color: #000;
+  border: 1px solid #000;
+  background: #FFF;
+}
+
+.magnific-label {
+  font-size: 14px;
+}
+
+.magnific-submit {
+  display: block;
+  padding: 10px 30px;
+  margin: 10px 0 0 0;
+  border: 1px solid #666;
+  color: #222;
+  font-size: 16px;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+}
+
+.magnific-submit:hover {
+  color: #000;
+  border: 1px solid #000;
+  background: #ccc;
+}
+
+.magnific-submit:active {
+  color: #FFF;
+  border: 1px solid #000;
+  background: #666;
+}
+
+/* Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific - Magnific */
+
+/* ClientSideError - ClientSideError - ClientSideError - ClientSideError - ClientSideError */
+.field_with_errors > label, .field_with_errors > .message {
+  background-color: $admin-red;
+  color: #fff;
+}
+
+.form-label-trans-rel .field_with_errors > label{
+  background-color: inherit;
+}
+
+.field_with_errors {
+  position: relative;
+
+  label.message {
+    float: right;
+    font-size: .8em;
+    color: rgba(204, 0, 0, 0.6);
+  }
+
+  textarea, input {
+    border-color: rgba(204, 0, 0, 0.4);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.065) inset, 0 0 8px rgba(204, 0, 0, 0.4);
+  }
+}
+
+.error-container {
+  position: absolute;
+  cursor: default;
+  transition: all 0.2s ease;
+  top: calc((100% - 15px) /2);
+  right: 7px;
+
+  .error-icon {
+    &:before {
+      content: '!';
+      width: 15px;
+      display: block;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+      border-radius: 50%;
+      color: #FFF;
+      position: relative;
+      background: $admin-red;
+      text-align: center;
+    }
+  }
+
+  .error-content {
+    width: 180px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 650;
+    top: 100%;
+    transition: all 0.2s ease;
+    font-size: 1em;
+    background: #FFF;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3), 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+    transform: translateX(-87%);
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      display: block;
+      position: absolute;
+      transform: rotate(45deg);
+      left: 90%;
+      top: -3px;
+      background: #FFF;
+    }
+  }
+
+  &:hover {
+    z-index: 4;
+  }
+}
+
+/* ClientSideError - ClientSideError - ClientSideError - ClientSideError - ClientSideError */
+
+.form-notice{
+  font-size: .8em;
+  line-height: 1.2em;
+  color: #666;
+}
+
+.error-color {
+  color: $admin-red;
+}
+

@@ -1,0 +1,30 @@
+<div class='path-12'>
+  <%= form_for([template_system, 'admin', @configuration], html: { class: "form-add js__template-system" }, validate: true) do |f| %>
+    <%= render "form_errors", object: f.object %>
+
+    <div class="path-6">
+      <div class="f-a-left">
+        <%= f.label :critical, class: "f-a-label"%>
+        <%= f.check_box :critical, class: "f-a-input" %>
+
+        <%= f.label :attr_type, class: "f-a-label"%>
+        <%= f.text_field :attr_type, class: "f-a-input" %>
+
+        <%= f.label :section, class: "f-a-label"%>
+        <%= f.text_field :section, class: "f-a-input" %>
+
+        <%= f.label :section_attr, class: "f-a-label"%>
+        <%= f.text_field :section_attr, class: "f-a-input" %>
+      </div>
+    </div>
+
+    <div class='path-6 padd-l'>
+      <div class='f-a-right'>
+        <%= f.label :value, class: "f-a-label"%>
+        <%= f.text_field :value, class: "f-a-input" %>
+      </div>
+    </div>
+
+    <div class="clearfloat"> </div>
+  <% end %>
+</div>

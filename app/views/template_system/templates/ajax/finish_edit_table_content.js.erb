@@ -1,0 +1,6 @@
+var ins = $(document).find("[data-t-id='<%= template.id %>']");
+
+$(ins).html("<%= j render partial: '/template_system/templates/template_admin', locals: { template: template } %>");
+
+$(ins).find('.li-admin-stroke').li_admin_stroke_enter();
+iconsData.addAndInitIcons('<%= raw j template.json_for_icons_js(can?(:destroy, template), template.row_num - 1).to_json %>', ins, true);

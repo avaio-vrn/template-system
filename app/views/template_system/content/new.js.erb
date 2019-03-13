@@ -1,0 +1,9 @@
+$('.ts-admin-panel--bottom').
+  html("<div class='js__new-template js__spinner'>\
+         <span class='element-close element-close--inside remove-block' href='#'></span>\
+         <%= j render partial: '/template_system/content/form', locals: { remote_action: true } %>\
+         </div>"
+  );
+
+window.variables.panelBottom.trigger('TS.panel.bottom.update');
+

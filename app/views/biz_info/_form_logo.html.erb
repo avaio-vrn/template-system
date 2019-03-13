@@ -1,0 +1,13 @@
+<%= form_tag(template_system.upload_logo_biz_info_path, multipart: true, html: { class:'js__template-system' }) do |f| %>
+  <div class='path-12 padd-lr admin-stroke'>
+    <div class="fl-center">
+      <%= image_tag(@logo.image.url(:medium), class: 'js__image-preview max-w100') unless @logo.image.nil? %>
+    </div>
+    <div class="f-a-file-container">
+      <span class="button-mid">Выбрать файл</span>
+      <%= file_field_tag :image, class: 'f-a-file', accept: Files::Image::MIME_TYPES %>
+    </div>
+  </div>
+
+  <div class='clearfloat'></div>
+<% end %>

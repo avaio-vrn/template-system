@@ -1,0 +1,70 @@
+@import "admin_variables";
+
+.errorscenter {
+  text-indent: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.errors-container {
+  margin: 20px 10px;
+  padding: 20px 30px;
+  display: inline-block;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.errors-number {
+  height: 1em;
+  margin: 0.2em 0;
+  display: block;
+  font-size: 10em;
+  line-height: 1;
+  position: relative;
+
+  i {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-style: normal;
+
+    &:firts-child {
+      animation: numb 1s infinite ease;
+    }
+
+    &:second-child {
+      animation: numb 1s 0.5s infinite ease;
+    }
+
+    &:last-child {
+      animation: numb 1s 1s infinite ease;
+    }
+  }
+}
+
+@keyframes numb {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.errors-title {
+  display: block;
+  text-indent: 0;
+  text-align: left;
+  font-size: 1.4em;
+}
+
+.errors-list {
+  padding: 20px 0;
+  text-align: left;
+}

@@ -1,0 +1,15 @@
+<% if object.errors.any? %>
+	<div class='error-block'>
+		<span class='error-title'>
+			<%= I18n.t :header, scope: [:errors, :template], count: object.errors.count, model: object.class.model_name.human %>
+      <%=  %>
+		</span>
+		<ul class='error-list'>
+			<% object.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

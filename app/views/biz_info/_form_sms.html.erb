@@ -1,0 +1,30 @@
+<div class='path-12'>
+  <%= form_for(@biz_info, url: template_system.biz_info_path, html: { class:'form-add js__template-system' }, validate: true) do |f| %>
+    <%= render 'form_errors', object: f.object %>
+
+    <div class='path-6'>
+      <div class='f-a-left clfl'>
+        <span class='admin-title'>Настройки СМС оповещения</span>
+
+        <%= f.label :sms_phone, class:'f-a-label' %>
+        <%= f.text_field :sms_phone, class:'f-a-input' %>
+
+        <%# <%= f.label :sms_type, class:'f-a-label' %>
+        <%# <%= f.collection_radio_buttons(:sms_type, [['Прямой канал', 4], ["Непрямой канал", 3]], :first, :last) %>
+
+        <%= f.label :sms_timezone, class:'f-a-label' %>
+        <%= f.collection_select :sms_timezone, (-1..9).map{|e| [e]}, :first, :first, { include_blank: false, selected: 0 }, class: "f-a-input" %>
+
+        <%= f.label :sms_start_send, class:'f-a-label' %>
+        <div class='f-a-input'>
+          <%= f.time_select :sms_start_send %>
+        </div>
+
+        <%= f.label :sms_stop_send, class:'f-a-label' %>
+        <div class='f-a-input'>
+          <%= f.time_select :sms_stop_send %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,202 @@
+@import "../admin_variables";
+
+.form-add {
+  display: block;
+  width: 100%;
+
+  .image {
+    img {
+      width: auto;
+      max-height: 100px;
+    }
+  }
+}
+
+.admin-title {
+  display: block;
+  margin: 20px 0 0;
+  color: #222;
+  font-size: 1.4em;
+}
+
+.admin-title-min {
+  display: block;
+  margin: 20px 0 5px 0;
+  color: #333;
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+.f-a-left {
+  padding: 20px;
+  background: #F0F0F0;
+}
+
+.f-a-right {
+  padding: 20px 0;
+}
+
+.f-a-left, .f-a-right {
+  p {
+    text-indent: 0;
+  }
+
+  .button-big {
+    margin: 0;
+  }
+}
+
+.adminmode {
+  .f-a-label {
+    height:auto;
+    display: inline-block;
+    font-size: 14px;
+    font-style: italic;
+    color: #222;
+  }
+
+  .f-a-input {
+    box-sizing: border-box;
+    width: 100%;
+    height:auto;
+    margin: 5px 0 20px 0;
+    padding: 5px;
+    border: 1px solid #666;
+    display: block;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+    background: #F2F2F2;
+  }
+
+  .f-a-input--4{
+    width: calc(33.33% - 10px);
+    display: inline-block;
+  }
+
+  .f-a-input--mini {
+    box-sizing: border-box;
+    height:auto;
+    max-width: 100%;
+    padding: 2px;
+    border: 1px solid #666;
+    display: block;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+    background: #F2F2F2;
+  }
+
+  .f-a-number {
+    box-sizing: border-box;
+    width: 20%;
+    height:auto;
+    min-width: 100px;
+    margin: 5px 0 20px 0;
+    padding: 5px;
+    border: 1px solid #666;
+    display: block;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+    background: #F2F2F2;
+  }
+
+  .f-a-area {
+    width: 100%;
+    height: 175px;
+    display: block;
+    padding: 5px;
+    border: 1px solid #666;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+    transition: all 0.3s ease;
+    background: #F2F2F2;
+  }
+
+  .f-a-area + .button-big {
+    margin: 0;
+  }
+
+  .f-a-area--double {
+    height: 98px;
+  }
+
+  .f-a-input, .f-a-number, .f-a-area {
+    &:hover {
+      border: 1px solid #000;
+    }
+
+    &:focus {
+      color: #000;
+      border: 1px solid #000;
+      background: #FFF;
+    }
+  }
+
+  .js__edit-textarea{
+    overflow: hidden;
+  }
+
+  .f-a-option {
+    margin: 5px;
+  }
+
+  .f-a-file-container {
+    position: relative;
+    margin: 5px 0 10px 0;
+
+    .button-mid {
+      display: block;
+      margin: 0;
+    }
+
+    &:hover {
+      .button-mid {
+        color: #FFF;
+        background: #666;
+      }
+    }
+  }
+
+  .f-a-file {
+    width: 100%;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    background: red;
+  }
+
+  .f-a-box {
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+
+    &:nth-child(odd) {
+      padding-right: 10px;
+    }
+
+    &:nth-child(even) {
+      padding-left: 10px;
+    }
+  }
+
+  .image-preview {
+    max-width: 100%;
+  }
+
+  .multi-inline{
+    display: flex;
+    .block{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+}

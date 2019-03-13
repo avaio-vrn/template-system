@@ -1,0 +1,13 @@
+var ins = $('section .template:last-child')
+if(ins.length == 0) { ins = $('h1') }
+ins.after('<div class="template"></div>');
+ins = $('section .template:last-child')
+
+ins.html("<%= j render partial: '/template_system/templates/template_admin', locals: { template: item } %>");
+
+ins.attr('class', "template admin-stroke delete-block");
+ins.attr("data-<%= data_name_parent %>-id","<%= item.id %>");
+
+iconsData.addAndInitIcons('<%= raw j item.json_for_icons_js(can?(:destroy, item)).to_json %>', ins);
+
+window.variables.panelBottom.trigger('TS.template.create');

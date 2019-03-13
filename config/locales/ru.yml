@@ -1,0 +1,127 @@
+ru:
+  template_system_content_text:
+    edit: Двойной клик мыши ➔ редактирование этого текста
+    big: Двойной клик мыши ➔ редактирование этого текста. Текст рыба или Lorem Ipsum специально делают лишённым логического смысла, чтобы пользователь мог сосредаточиться на визуальном восприятии макета.
+    lorem: Lorem Ipsum etc...
+    alt: Отредактируйте или удалите это описание (для SEO)
+  breadcrumbs:
+    templates: Редактирование контента
+    template_types: Шаблоны
+  admin:
+    fix_row_num: Необходимо исправить порядок
+  panel:
+    css:
+      index: icon-page
+      new: icon-new
+      edit: icon-edit
+      del: icon-delete
+      destroy: icon-destroy
+  errors:
+    unauthorized_401: У вас нет доступа к данной функции сайта
+    not_found_404: Запрашиваемая страница не найдена
+    page_del_410: Запрашиваемая страница была удалена
+    server_error_500: Ой, у нас на сервере что-то сломалось
+  attributes:
+    content_name: Заголовок ссылки
+    content_header: Заголовок на странице
+    force_id_str: Строка адреса страницы
+    auto_force_id_str: Автоматически
+    manual_force_id_str: Задать вручную
+    del: Страница была удалена
+    row_num: Порядковый номер
+    name: Имя
+    contacts: Телефон или email
+    message: Текст сообщения
+    terms_of_service: Нажимая кнопку «Отправить», я принимаю условия «Пользовательского соглашения»
+      и даю своё согласие на обработку моих персональных данных, в соответствии с Федеральным
+      законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных «Политикой конфиденциальности».
+  biz_info:
+    show:
+      header_h1: Основная бизнес информация
+    edit:
+      header_h1: Редактирование бизнес информации
+    edit_logo:
+      header_h1: Загрузка логотипа организации
+    update:
+      header_h1: Редактирование бизнес информации
+  template_system/templates: &templates
+    new:
+      header_h1: Добавление нового шаблона
+    edit:
+      header_h1: Редактирование шаблона
+    update:
+      header_h1: Редактирование шаблона
+  templates: *templates
+  template_system/template_types: &template_types
+    index:
+      header_h1: Список доступных шаблонов
+    new:
+      header_h1: Добавление нового типа шаблона
+    edit:
+      header_h1: Редактирование типа шаблона
+    update:
+      header_h1: Редактирование типа шаблона
+    buttons:
+      new_tag: Добавить теги шаблона<span class="ts-icons icon-add"></span>
+      new_part: Добавить часть шаблона<span class="ts-icons icon-add"></span>
+  template_types: *template_types
+  template_system/template_tags: &template_tags
+    new:
+      header_h1: Добавление нового тега
+    edit:
+      header_h1: Редактирование тега
+    update:
+      header_h1: Редактирование тега
+  template_tags: *template_tags
+  template_system/settings/home:
+    show:
+      header_h1: Настройки
+  sitemap:
+    index:
+      header_h1: Карта сайта
+  template_system_layout/theme_styles:
+    edit:
+      header_h1: Редактирование css/scss
+  template_system/template_type: к шаблону
+  activerecord:
+    models:
+      accusative:
+        template_system/template_type: шаблон
+        biz_info: осн.информацию
+    attributes:
+      template_system/template_tag:
+        name: Тэг(h1-h6,p,span,input)
+        settings: Дополнительные свойства
+        html_class: CSS класс для тэга
+      template_system/template_part:
+        content_name: Название части шаблона
+        html_class: Класс CSS части шаблона
+      template_system/template_type:
+        template_type_category_id: Категория шаблона
+        content_name: Название шаблона
+        html_class: Класс CSS
+        svg_content: Код svg изображения
+        raw: CKEditor редактор
+        render: Уникальный(предустановленный) шаблон
+  activemodel:
+    attributes:
+      biz_info:
+        name: Наименование организации
+        name_in_logo: Отображать организацию в шапке сайта
+        tagline: Слоган организации
+        additional_phones: Дополнительные номера телефонов(каждый с новой строки)
+        address: Адрес
+        email: Контактный e-mail
+        email_for_form: E-mail для форм обратной связи
+        lat: Широта
+        lgt: Долгода
+        phone: Телефон
+        phone_second: Второй телефон
+        domain: Адрес сайта (домен, без http://)
+        protocol: Протокол работы сайта
+        ym: Яндекс.Метрика - номер счетчика
+        ym2: Вебвизор2
+        ga: Google Analytics - номер аккаунта
+  template_system:
+    tag_form:
+      img_group: Номер группы изображения

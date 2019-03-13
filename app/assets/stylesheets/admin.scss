@@ -1,0 +1,27 @@
+@import 'admin_variables';
+
+body > .ts-admin-container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@import 'admin/panel/base';
+@import 'admin/control_icons';
+@import 'admin/buttons';
+@import 'admin/chpu';
+@import 'admin/form_add';
+@import 'admin/stroke';
+@import 'admin/content_editing';
+@import 'admin/bottom_panel';
+@import 'admin/dialog';
+@import 'admin/error_block';
+
+.noie{
+  display:none;
+}
+
+@import 'spinner';
+@import 'checkbox';

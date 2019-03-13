@@ -1,0 +1,14 @@
+<%= form_for([template_system, TemplateSystem::Template.new], remote: true, validate: false) do |f| %>
+  <%= hidden_field_tag 'template_system_template[create_collection]', true %>
+  <%= hidden_field_tag 'content_id', params[:id] %>
+  <div class='temp-wrap'>
+    <div class='temp-part temp-part--x2'>
+      <%= text_area_tag 'template_system_template[text]', nil, class:'js__edit-textarea f-a-area', rows: 5 %>
+    </div>
+    <div class='temp-part'>
+      <%= submit_tag 'Добавить', class:'temp-submit js__submit fl-l' %>
+      <div class="clearfloat"> </div>
+      <span class="temp-title">В поле поместите текст. <br />Каждый параграф с новой строки.<br />Система автоматически разобьет его на шаблоны.</span>
+    </div>
+  </div>
+<% end %>

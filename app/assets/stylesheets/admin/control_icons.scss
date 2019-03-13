@@ -1,0 +1,451 @@
+@import "../admin_variables";
+
+.ts-icons {
+  width: 1.875rem;
+  height: 1.875rem;
+  margin: 1px;
+  padding: 0;
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  background-image: none;
+
+  &:before, &:after {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+}
+
+.ts-icon-btn{
+  border: 1px solid #ccc;
+  box-shadow: 1px 2px 2px rgba(0,0,0, 0.5);
+
+  &:hover{
+    box-shadow: 1px 2px 2px rgba(0,0,0, 0.1);
+  }
+}
+
+.icon-new {
+  &:before {
+    width: 1.429em;
+    height: .142em;
+    top: .714em;
+    left: .071em;
+    background: $admin-green;
+  }
+
+  &:after {
+    width: .142em;
+    height: 1.429em;
+    top: .071em;
+    left: .714em;
+    background: $admin-green;
+  }
+}
+
+.icon-add {
+  &:before {
+    width: 1.429em;
+    height: .142em;
+    top: .714em;
+    left: .071em;
+    background: #666;
+  }
+
+  &:after {
+    width: .142em;
+    height: 1.429em;
+    top: .071em;
+    left: .714em;
+    background: #666;
+  }
+}
+
+.icon-edit {
+  &:before {
+    width: .142em;
+    height: 1.071em;
+    top: .142em;
+    left: .857em;
+    transform: rotate(45deg);
+    background: $admin-blue;
+  }
+
+  &:after {
+    content: "";
+    width: .142em;
+    height: .142em;
+    top: 1.143em;
+    left: .284em;
+    background: $admin-blue;
+  }
+}
+
+.icon-save {
+  &:before {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border-radius: 4px 0 0 0;
+    border-width: .15em;
+    border: solid $admin-blue;
+  }
+
+  &:after {
+    width: 40%;
+    height: 20%;
+    top: 10%;
+    left: 30%;
+    border-width: .15em;
+    border: solid $admin-blue;
+  }
+}
+
+.icon-apply {
+  &:before {
+    width: .284em;
+    height: .714em;
+    transform: rotate(-50deg);
+    top: .714em;
+    left: .429em;
+    background: $admin-green;
+  }
+
+  &:after {
+    width: .142em;
+    height: 1.143em;
+    transform: rotate(30deg);
+    top: .142em;
+    left: 0.929em;
+    background: $admin-green;
+  }
+}
+
+.icon-abort {
+  &:before {
+    width: 10%;
+    height: 100%;
+    transform: rotate(45deg);
+    left: 45%;
+    background: $admin-red;
+  }
+
+  &:after {
+    width: 10%;
+    height: 100%;
+    transform: rotate(-45deg);
+    left: 45%;
+    background: $admin-red;
+  }
+}
+
+.icon-delete {
+  &:before {
+    height: 65%;
+    left: 20%;
+    top: calc(12.5% + 3px);
+    width: 60%;
+    border-radius: 0 0 .25rem .24rem;
+    border: solid $admin-red;
+    border-width: .15em;
+    border-top-style: hidden;
+    transform: perspective(0.14em) rotateX(-2deg);
+  }
+
+  &:after {
+    height: 60%;
+    left: 40%;
+    top: calc(12.5% + 3px);
+    width: 20%;
+    border-left: 1px solid $admin-red;
+    border-right: 1px solid $admin-red;
+  }
+}
+
+.icon-cancel-delete {
+  &:before, &:after {
+    border-color: $admin-green;
+  }
+}
+
+.icon-destroy {
+  &:before {
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    border-radius: 50%;
+    background: $admin-red;
+  }
+
+  &:after {
+    height: 15%;
+    left: 25%;
+    top: 40%;
+    width: 50%;
+    background: #FFF;
+  }
+}
+
+.up-down-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.icon-up, .icon-down {
+  height: 45%;
+
+  &:before {
+    width: 45%;
+    height: 100%;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    left: 27%;
+  }
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: white;
+  }
+}
+
+.icon-up {
+  &:before {
+    transform: rotate(-135deg);
+    top: 33%;
+  }
+
+  &:after {
+    top: calc(100% - 3px);
+  }
+}
+
+.icon-down {
+  &:before {
+    transform: rotate(45deg);
+    top: -33%;
+  }
+}
+
+.icon-left, .icon-right {
+  &:before {
+    width: .714em;
+    height: .714em;
+    border-right: .142em solid #666;
+    border-bottom: .142em solid #666;
+    top: .357em;
+  }
+}
+
+.icon-left:before {
+  transform: rotate(135deg);
+  left: .571em;
+}
+
+.icon-right:before {
+  transform: rotate(-45deg);
+  left: .142em;
+}
+
+.icon-page {
+  &:before {
+    width: 1.125rem;
+    height: 1.43rem;
+    left: .178rem;
+    border: .178rem solid #666;
+  }
+
+  &:after {
+    border-bottom: 0.1rem solid #666;
+    border-top: 0.1rem solid #666;
+    height: 0.25rem;
+    left: 0.469rem;
+    top: 0.438rem;
+    width: 0.5rem;
+  }
+}
+
+.icon-quit {
+  &:before {
+    width: 1.125rem;
+    height: 1.5rem;
+    left: .178rem;
+    border: .15rem solid #666;
+    border-bottom-style: hidden;
+  }
+
+  &:after {
+    width: .1rem;
+    height: .4rem;
+    top: .714rem;
+    left: .571rem;
+    background: #666;
+  }
+}
+
+.icon-tag {}
+
+.icon-seo:before {
+  content: "seo";
+  transform: rotate(-90deg);
+  font-size: .857em;
+  top: .214em;
+  left: 0;
+  color: $admin-red;
+}
+
+.icon-title:before {
+  content: "title";
+  transform: rotate(-90deg);
+  font-size: 12px;
+  top: .142em;
+  left: 0;
+  color: #333;
+}
+
+.icon-meta:before {
+  content: "META";
+  transform: rotate(-90deg);
+  font-size: 8.5px;
+  top: .214em;
+  left: 0;
+  color: $admin-red;
+}
+
+.icon-reply {
+  &:before, &:after {
+    content: "";
+    position: absolute;
+  }
+
+  &:before {
+    width: .714em;
+    height: .429em;
+    border-top: 0.142em solid $admin-blue;
+    border-right: 0.142em solid $admin-blue;
+    border-bottom: 0.142em solid $admin-blue;
+    border-radius: 0 .357em .357em 0;
+    top: .429em;
+    left: .429em;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    border-width: .357em;
+    border-left-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-right-color: $admin-blue;
+    top: .142em;
+    left: .214em;
+  }
+}
+
+.icon-publish {
+  &:before, &:after {
+    content: "";
+    position: absolute;
+  }
+
+  &:before {
+    width: .714em;
+    height: .571em;
+    top: .5em;
+    left: .285em;
+    background: $admin-green;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    border-width: .643em;
+    border-right-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $admin-green;
+    top: .142em;
+    left: .714em;
+  }
+}
+
+.icon-go {
+  padding: 0 5px;
+  margin: 1px;
+  text-align: center;
+  color: #333;
+  cursor: pointer;
+  width: auto;
+}
+
+.ts-icons.icon-move {
+  span {
+    background-color: #666;
+    display: block;
+    height: 2px;
+    margin: 8px 5px;
+    position: relative;
+  }
+
+  span:after {
+    border-color: transparent transparent transparent #666;
+    border-style: solid;
+    border-width: 4px 0 4px 4px;
+    content: "";
+    display: block;
+    position: absolute;
+    right: -1px;
+    top: -3px;
+  }
+}
+
+.ts-icons.icon-change-container {
+  box-sizing: border-box;
+  padding: 0.17em;
+
+  .icon-change {
+    border-color: transparent $admin-green;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.15em;
+    display: block;
+    height: 1em;
+    position: absolute;
+    width: 1em;
+
+    &:before, &:after {
+      border-style: solid;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      border-color: transparent transparent transparent $admin-green;
+      border-width: 0.225em 0 0.225em 0.4em;
+      left: 0.0525em;
+      top: -0.245em;
+    }
+
+    &:before {
+      border-color: transparent $admin-green transparent transparent;
+      border-width: 0.225em 0.4em 0.225em 0;
+      bottom: -.245em;
+      right: .0525em;
+    }
+  }
+}
+
+.ts-icons.icon-gear {
+  background-image: image-url("gear_icon.svg");
+  background-position: 0 -2px;
+  top: 0.67rem;
+  left: 0.3rem;
+}

@@ -1,0 +1,25 @@
+<%= provide :h1, content_tag(:h1, t(:fix_row_num, scope: :admin), class: config_get('html', 'h1_class')) %>
+
+<div class='template path-0'>
+  <p>Нумерация позиций должны идти в порядке возрастания, начиная с 1</p>
+</div>
+
+<%= form_tag template_system.admin_fix_row_num_path, class: 'js__template-system bg-white' do |f| %>
+  <%= hidden_field_tag :model, params[:model] %>
+  <%= hidden_field_tag :model_engine, params[:model_engine] %>
+  <%= hidden_field_tag :model_namespace, params[:model_namespace] %>
+  <%= hidden_field_tag :opt, params[:opt] %>
+  <% @fix_row_num.records.each.with_index(1) do |obj, index| %>
+    <% random = SecureRandom.hex(5) %>
+    <div class='admin-stroke <%= ' delete-block' unless obj.row_num == index %>'>
+      <%= hidden_field_tag :id, nil, value: obj.id, name: "[fixes][model_#{random}][id]" %>
+      <div class='path-10 padd-lr'>
+        <%= obj.to_s %>
+      </div>
+      <div class='path-2'>
+        <%= number_field_tag :row_num, obj.row_num, value: obj.row_num, name: "[fixes][model_#{random}][row_num]", class: 'f-a-input--mini' %>
+      </div>
+      <div class='clearfloat'></div>
+    </div>
+  <% end %>
+<% end %>

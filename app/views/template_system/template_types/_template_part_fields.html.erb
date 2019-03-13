@@ -1,0 +1,27 @@
+<div class="js__nested-part-fields admin-stroke clfl">
+  <div class='path-6 '>
+    <div class='path-6 padd-l'>
+      <%= f.label :content_name, class: "f-a-label" %>
+      <%= f.text_field :content_name, class: "f-a-input" %>
+    </div>
+    <div class='path-6 padd-lr'>
+      <%= f.label :html_class, class: "f-a-label"%>
+      <%= f.text_field :html_class, class: "f-a-input" %>
+    </div>
+  </div>
+
+  <div class="path-6 padd-l">
+    <div class="tags">
+      <%= f.fields_for :template_tags do |nested_f| %>
+        <%= render 'template_tag_fields', f:nested_f %>
+      <% end %>
+      <div class="addition-fields">
+        <%= link_to_add_association t(:new_tag, scope: ['template_system/template_types'.freeze, :buttons]).html_safe, f,
+          :template_tags, class: 'button-big button-big--l', wrap_object: f.object.template_type,
+          data: {'association-insertion-node' => "this"} %>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to_remove_association '', f, class:"element-close element-close--inside", data: { 'wrapper-class' => 'js__nested-part-fields', confirm: 'Удалить?'} %>
+</div>

@@ -1,0 +1,28 @@
+<% data_name = @list_pages.items.blank? ? '' : @list_pages.items.first.class.model_name.underscore.split('_').inject(""){|memo,e| memo << e[0]} %>
+<%= content_for :admin_javascripts, javascript_include_tag(:admin_template_system) %>
+<%= content_for :admin_javascripts, javascript_include_tag(:init_global) %>
+<%= content_for :admin_javascripts, javascript_tag("iconGlobalDataSet('#{json_for_icon_global_data((@current_page_list || @list_pages.items), nil)}');") %>
+<%= provide :h1, content_tag(:h1, @list_pages.h1, class: config_get(:html, :h1_class)) %>
+
+<% @admin_panel.routes_set %>
+
+<!-- <div class="abs&#45;t&#45;r"> -->
+  <%# <% if !list.blank? && @admin_panel %>
+    <%#   <%= link_to(send(@admin_panel.model_engine).polymorphic_path(list.first.class, simple:true), class:"button-mid button-mid--r") do  %>
+      <%#     <% "Пользовательский вид <span class='ts-icons icon-right'> </span>".html_safe %>
+      <%#   <% end %>
+    <%# <% end %>
+  <!-- </div> -->
+
+<% (@current_page_list || @list_pages.items).each_with_index do |item, index| %>
+  <div class='template admin-stroke<%= " delete-block" if(item.has_attribute?(:del) && item.del) %>'
+    data-index='<%= index %>'
+    data-<%= data_name %>-id='<%= item.id %>'>
+
+    <%= render @list_pages.partial, template: item %>
+  </div>
+<% end %>
+
+<% if defined?(TsEshop) %>
+  <%= paginate (@current_page_list || @list_pages.items) %>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="magnific-container">
+  <div class="magnific-title bg-clr2">
+    Задать вопрос
+  </div>
+  <%= form_for ContactForm.new, url: template_system.send_question_form_path, remote:true, validate:true, html: { class: 'magnific-form' } do |f| %>
+    <label class="magnific-label" for="contact_form_name">Ваше имя*:</label>
+    <%= f.text_field :name, class: 'magnific-input'%>
+    <label class="magnific-label" for="contact_form_contacts">Телефон / e-mail*:</label>
+    <%= f.text_field :contacts, class: 'magnific-input'%>
+    <label class="magnific-label" for="contact_form_message">Текст вопроса*:</label>
+    <%= f.text_area :message, class:'magnific-area', placeholder:'Что вас интересует?' %>
+    <input class="magnific-submit" type="submit" value="Отправить" />
+    <%= hidden_field_tag :js__form %>
+  <% end %>
+</div>

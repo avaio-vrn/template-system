@@ -1,0 +1,6 @@
+main_infos:
+  id: :main_infos
+  replace: :biz_info
+  url: main_infos_path
+  name: Основная информация
+  description: Изменение названия организации, адреса, телефона, email и другой информации

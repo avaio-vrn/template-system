@@ -1,0 +1,76 @@
+<%= content_for :admin_javascripts, javascript_include_tag('biz_info') %>
+
+<div class='path-12'>
+  <%= form_for(@biz_info, url: template_system.biz_info_path, html: { class:'form-add js__template-system' }, validate: true) do |f| %>
+    <%= render 'form_errors', object: f.object %>
+
+    <div class='path-6'>
+      <div class='f-a-left clfl'>
+        <span class='admin-title'>Основная информация</span>
+
+        <%= f.label :name, class:'f-a-label' %>
+        <%= f.text_field :name, class:'f-a-input' %>
+
+        <label class="f-a-checkbox">
+          <%= f.check_box :name_in_logo %>
+          <span class="f-a-checkbox-span"></span>
+          <%= content_tag :name_in_logo, f.object.class.human_attribute_name(:name_in_logo), class:"f-a-label" %>
+        </label>
+
+        <%= f.label :tagline, class:'f-a-label' %>
+        <%= f.text_field :tagline, class:'f-a-input' %>
+
+        <%= f.label :protocol, class:'f-a-label' %>
+        <%= f.collection_select :protocol, [['http'],['https']], :first, :first, { include_blank: false }, class: "f-a-input" %>
+
+        <%= f.label :domain, class:'f-a-label' %>
+        <%= f.text_field :domain, class:'f-a-input' %>
+
+        <%= f.label :subdomain, class:'f-a-label' %>
+        <%= f.text_field :subdomain, class:'f-a-input' %>
+
+        <%= f.label :email, class:'f-a-label' %>
+        <%= f.text_field :email, class:'f-a-input' %>
+
+        <%= f.label :email_for_form, class:'f-a-label' %>
+        <%= f.text_field :email_for_form, class:'f-a-input' %>
+
+      </div>
+    </div>
+
+    <div class='path-6 padd-lr'>
+      <div class='f-a-right'>
+        <span class='admin-title'>Контактная информация</span>
+
+        <%= f.label :phone, class:'f-a-label' %>
+        <%= f.text_field :phone, class:'f-a-input' %>
+
+        <%= f.label :phone_second, class:'f-a-label' %>
+        <%= f.text_field :phone_second, class:'f-a-input' %>
+
+        <%= f.label :additional_phones, class:'f-a-label' %>
+        <%= f.text_area :additional_phones, class:'f-a-area f-a-area--double' %>
+
+        <%= f.label :address, class:'f-a-label' %>
+        <%= f.text_field :address, class:'f-a-input js__address' %>
+
+        <span class='admin-title'>Геопозиция</span>
+
+        <div class='js__spinner upload-spinner-ctn'>
+          <div class='path-6 padd-r'>
+            <%= f.label :lat, class:'f-a-label' %>
+            <%= f.text_field :lat, class:'f-a-input js__lat' %>
+          </div>
+
+          <div class='path-6 padd-l'>
+            <%= f.label :lgt, class:'f-a-label' %>
+            <%= f.text_field :lgt, class:'f-a-input js__lgt' %>
+          </div>
+        </div>
+        <div class='clearfloat'></div>
+      </div>
+    </div>
+
+    <div class='clearfloat'></div>
+  <% end %>
+</div>

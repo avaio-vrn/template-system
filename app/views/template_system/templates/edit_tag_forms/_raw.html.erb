@@ -1,0 +1,5 @@
+<div class="editing" data-<%= data_name %>-id='<%= content.id %>' data-name='<%= data_name %>'>
+  <%= form_for 'raw', html:{ multipart: true, remote: true, class: 'js__post-form' }, url: "/#{content.class.model_name.underscore}s/ajax/#{content.id}/save_content?target_id=#{content.id}" do |f| %>
+    <%= f.text_area :values, value: content.content_text, class: 'edit' %>
+  <% end %>
+</div>

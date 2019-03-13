@@ -1,0 +1,37 @@
+<a class="admin-link" href="/sitemap">
+  <span class="ts-icons icon-page"></span>
+  <span class="cell">Структура сайта</span>
+</a>
+
+<a class="admin-link" href="/admin/pages/new">
+  <span class="ts-icons icon-new"></span>
+  <span class="cell">Стр.базовая добавить</span>
+</a>
+
+<a class="admin-link" href="/admin/sections/new">
+  <span class="ts-icons icon-new"> </span>
+  <span class="cell">Раздел добавить</span>
+</a>
+
+<% unless Section.first.blank? %>
+  <a class="admin-link" href="/admin/sections/<%= Section.first.id_str %>/page_sections/new">
+    <span class="ts-icons icon-new"></span>
+    <span class="cell">Стр.раздела добавить</span>
+  </a>
+<% end %>
+
+<a class="admin-link in-dev" href="#">
+  <span class="ts-icons icon-page"></span>
+  <span class="cell">Галерея изображений</span>
+</a>
+
+<% if defined?(TsEshop) %>
+  <a class="admin-link" href="/baskets">
+    <span class="ts-icons icon-page"></span>
+    <span class="cell">Заказы</span>
+  </a>
+  <a class="admin-link" href="/admin/goods/health_check">
+    <span class="ts-icons icon-page"></span>
+    <span class="cell">Управление магазином</span>
+  </a>
+<% end %>

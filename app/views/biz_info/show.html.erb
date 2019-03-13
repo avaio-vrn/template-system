@@ -1,0 +1,50 @@
+<%= provide :h1, content_tag(:h1, t("#{params[:controller]}.#{params[:action]}.header_h1"), class: config_get(:html, :h1_class)) %>
+
+<div class='path-6'>
+  <div class='f-a-left clfl'>
+    <span class='admin-title'>Основная информация</span>
+
+    <p class='admin-title-min'><%= t :name, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.name %></p>
+
+    <p class='admin-title-min'><%= t :tagline, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.tagline %></p>
+
+    <p class='admin-title-min'><%= t :domain, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.domain %></p>
+
+    <p class='admin-title-min'>Контактный e-mail:</p>
+    <p><%= @biz_info.email %></p>
+
+    <p class='admin-title-min'>E-mail для форм обратной связи:</p>
+    <p><%= @biz_info.email_for_form %></p>
+
+    <!--
+    <span class='admin-title'>Геопозиция</span>
+
+    <p class='admin-title-min'><%= t :lat, scope: [:activemodel, :attributes, :biz_info] %> - <%= t :lgt, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.lat %> - <%= @biz_info.lgt %></p>
+    -->
+  </div>
+</div>
+
+<div class='path-6 padd-l'>
+  <div class='f-a-right clfl'>
+    <span class='admin-title'>Контактная информация</span>
+
+    <p class='admin-title-min'><%= t :phone, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.phone %></p>
+
+    <p class='admin-title-min'><%= t :phone_second, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.phone_second %></p>
+
+    <p class='admin-title-min'><%= t :additional_phones, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <%= @biz_info.additional_phones.lines.inject(''.html_safe){|mm, out| mm << content_tag(:p, out)} %>
+
+    <p class='admin-title-min'><%= t :address, scope: [:activemodel, :attributes, :biz_info] %>:</p>
+    <p><%= @biz_info.address %></p>
+
+  </div>
+</div>
+
+<div class='clearfloat'></div>

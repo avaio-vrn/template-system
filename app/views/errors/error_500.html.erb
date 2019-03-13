@@ -1,0 +1,21 @@
+<%= provide :h1, content_tag(:h1, t(:server_error_500, scope: :errors), class: config_get('html', 'h1_class') + " errorscenter") %>
+
+<div class='template errorscenter'>
+  <div class='errors-container'>
+    <span class='errors-number'>
+      <i>502</i>
+      <i>502</i>
+      <i>502</i>
+    </span>
+
+    <span class='errors-title'>Вы в этом не виноваты! Что можно предпринять:</span>
+    <ul class='errors-list'>
+      <li>Попробуйте перезагрузить страницу. Возможно, это просто случайность.</li>
+      <li>Зайдите на страницу позже. Может к этому времени все починилось.</li>
+      <li>Воспользуйтесь меню и выберите другой раздел.</li>
+      <% if Configuration.loaded_get('main', 'has_search') %>
+        <li>Воспользутесь поиском. Вам непременно повезет!</li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="edit-block clfl">
+  <span class="hint hint-bottom"></span>
+  <% if item.is_a? Module  %>
+
+    <% if @admin_panel.routes.include? :show %>
+      <%= link_to "Перейти: #{t 'header_h1', scope: [item.to_s.underscore.pluralize, 'index']}", send(@admin_panel.model_engine).polymorphic_path(@admin_panel.invert_obj(item)), class:"ts-icons icon-go", title:"Перейти на страницу" %>
+    <% end %>
+
+  <% else %>
+
+    <% if can? :update, item %>
+      <% if @admin_panel.routes.include? :edit %>
+        <%= link_to("", send(@admin_panel.model_engine).edit_polymorphic_path(@admin_panel.invert_obj(item), r_id: item.id), class: "ts-icons icon-edit js__ts-icons", title:"Редактировать") %>
+      <% end %>
+      <% if item.has_attribute?(:del) %>
+        <%= content_tag :span, '', class: 'js__ts-icons ts-icons icon-delete' << (item.del ? ' icon-cancel-delete' : '') %>
+      <% end %>
+      <% if @admin_panel.routes.include?(:destroy) && can?(:destroy, item) %>
+        <% if item.has_attribute?(:del) %>
+          <% if item.del %>
+            <%= content_tag :span, '', class: 'js__ts-icons ts-icons icon-destroy' %>
+          <% end %>
+        <% else %>
+          <%= content_tag :span, '', class: 'js__ts-icons ts-icons icon-destroy' %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if item.has_attribute?(:row_num) %>
+      <div class="up-down-container clfl">
+        <%= content_tag :span, '', class: 'js__ts-icons ts-icons icon-up' %>
+        <%= content_tag :span, '', class: 'js__ts-icons ts-icons icon-down' %>
+      </div>
+    <% end %>
+    <%#  "<div class='ts-icons icon-move js__ts-icons'>
+      <span></span>
+      <span></span>
+    </div>" %>
+
+    <% Array(local_assigns[:add_actions]).each do |act| %>
+      <%= link_to '', act[:href], class: "ts-icons " << act[:href_class], title: act[:href_name] %>
+    <% end %>
+
+    <% if @admin_panel.routes.include? :show %>
+      <%= link_to "Перейти: #{t item.class.model_name.i18n_key}", send(@admin_panel.model_engine).polymorphic_path(@admin_panel.invert_obj(item), r_id: item.id), class:"ts-icons icon-go", title:"Перейти на страницу" %>
+    <% end %>
+
+  <% end %>
+</div>

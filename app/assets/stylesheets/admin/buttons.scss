@@ -1,0 +1,195 @@
+@import "../admin_variables";
+
+.element-close {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border: 1px dashed #333;
+  border-left: none;
+  position: absolute;
+  top: -1px;
+  right: -22px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: #FFF;
+
+  &:before, &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    transition: all 0.2s ease;
+    transform: rotate(45deg);
+    background: #666;
+  }
+
+  &:before {
+    width: 16px;
+    height: 2px;
+    top: 9px;
+    left: 2px;
+  }
+
+  &:after {
+    width: 2px;
+    height: 16px;
+    top: 2px;
+    left: 9px;
+  }
+
+  &:hover {
+    border: 1px solid #666;
+    background: #666;
+
+    &:before, &:after {
+      background: #FFF;
+    }
+  }
+}
+
+.element-close--inside {
+  border: none;
+  border-left: 1px dashed #333;
+  border-bottom: 1px dashed #333;
+  z-index: 700;
+  top: 2px;
+  right: 2px;
+}
+
+// .element-close--inbox {
+//   right: 0;
+//   top: 0;
+//   border: 1px dashed #333;
+//   border-top: none;
+//   border-right: none;
+// }
+
+.button-min {
+  height: 22px;
+  padding: 0 5px;
+  margin: 1px;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333;
+  cursor: pointer;
+}
+
+.button-mid {
+  padding: 2px 10px;
+  display: inline-block;
+  color: #222;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 24px;
+  border: 1px solid #333;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+  background: #FFF;
+
+  &:hover {
+    color: #FFF;
+    border-color: #666;
+    background: #666;
+
+    .ts-icons:before {
+      border-color: #FFF;
+    }
+
+    .icon-add {
+      &:before, &:after {
+        background: #FFF;
+      }
+    }
+  }
+}
+
+.button-mid--l {
+  padding: 2px 10px 2px 40px;
+
+  .ts-icons {
+    top: 2px;
+    left: 7px;
+  }
+}
+
+.button-mid--r {
+  padding: 2px 40px 2px 10px;
+
+  .ts-icons {
+    top: 2px;
+    right: 7px;
+  }
+}
+
+.button-mid--li {
+  margin-top: 20px;
+}
+
+.button-mid--li + .button-mid--li {
+  margin-left: 10px;
+}
+
+.button-mid--table {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.button-big {
+  display: inline-block;
+  padding: 10px 19px;
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 1px solid #333;
+  color: #222;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  background: #FFF;
+
+  .ts-icons {
+    top: 8px;
+    left: 10px;
+  }
+
+  &:hover {
+    color: #FFF;
+    border-color: #666;
+    background: #666;
+
+    .icon-add:before, .icon-add:after {
+      background: #FFF;
+    }
+  }
+}
+
+.button-big--l {
+  padding: 10px 19px 10px 44px;
+
+  .ts-icons {
+    top: 8px;
+    left: 10px;
+  }
+}
+
+.button-big--r {
+  padding: 10px 44px 10px 19px;
+
+  .ts-icons {
+    top: 8px;
+    right: 10px;
+  }
+}
+
+.add-template {
+  margin-top: 0;
+}
+
+.element-close, .button-mid, .button-big {
+  &:active {
+    background: #333;
+  }
+}

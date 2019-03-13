@@ -1,0 +1,137 @@
+@import "../admin_variables";
+.adminmode{
+
+  .admin-stroke {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px dashed #E1E1E1;
+    transition: all 0.2s ease;
+    animation: bg 2s linear;
+
+    .element-close {
+      border-color: #CCC;
+
+      &:before, &:after {
+        background: #CCC;
+      }
+    }
+
+    .button-big {
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+
+    .admin-stroke {
+      margin: 28px 0 0 0;
+    }
+
+    &:after {
+      clear: both;
+      content: "";
+      display: block;
+      font-size: 1px;
+      height: 0;
+      line-height: 0;
+    }
+
+    &:hover {
+      border-color: #666;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+
+      .element-close {
+        &:hover {
+          border-color: #666;
+
+          &:before, &:after {
+            background: #FFF;
+          }
+        }
+      }
+    }
+
+    &:hover > .element-close {
+      border-color: #333;
+
+      &:before, &:after {
+        background: #666;
+      }
+    }
+  }
+
+  @keyframes bg {
+    0% {
+      background: transparentize($admin-green, 0.5);
+    }
+
+    50% {
+      background: transparentize($admin-green, 0.5);
+    }
+
+    100% {
+      background: none;
+    }
+  }
+
+  .admin-stroke-tight{
+    padding: 0;
+    margin: 0;
+  }
+
+  .edit-block {
+    display: flex;
+    padding: 3px 5px 3px 3px;
+    position: absolute;
+    top: -37px;
+    left: -1px;
+    z-index: 30;
+    opacity: 0;
+    text-indent: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 0 4px 4px #FFF;
+    cursor: default !important;
+    background: #666;
+    font-size: 18px;
+
+    .ts-icons, .button-min {
+      float: left;
+      position: relative;
+      cursor: pointer !important;
+      background: #FFF;
+
+      &:hover {
+        background: #ccc;
+      }
+
+      &:active {
+        background: #ebebeb;
+      }
+    }
+  }
+
+  .hint {
+    content: "";
+    width: 7px;
+    height: 7px;
+    display: block;
+    position: absolute;
+    left: 12px;
+    background: #666;
+  }
+
+  .hint-top {
+    transform: rotate(-135deg);
+    top: -4px;
+  }
+
+  .hint-bottom {
+    transform: rotate(45deg);
+    bottom: -4px;
+  }
+
+  .edit-block-show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0s 0.2s ease, visibility 0s ease;
+  }
+}

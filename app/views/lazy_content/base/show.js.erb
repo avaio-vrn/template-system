@@ -1,0 +1,11 @@
+if($.lazy_content == undefined){
+  $.lazy_content = {}
+}
+
+$.lazy_content["<%= params['i'] %>"] =
+  {
+    "html": "<%= j render(partial: lazy_content.partial, locals: lazy_content.partial_locals, formats: :html) %>",
+    "load_js": "<%= lazy_content.load_js %>",
+    "stylesheet": "<%= lazy_content.stylesheet %>",
+    "js": "<%= lazy_content.js %>"
+}

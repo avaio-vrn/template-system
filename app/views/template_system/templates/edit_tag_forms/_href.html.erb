@@ -1,0 +1,9 @@
+<div class='editing edit-link' title='Редактировать' data-<%= data_name %>-id='<%= content.id %>' data-name='<%= data_name %>'>
+  <form class='js__post-form'>
+    <label for='text-of-link' class='f-a-label'>Адрес ссылки</label>
+    <textarea id='text-of-link' class='js__edit-textarea f-a-area' name='values[href]'><%= content.part_content_text[:href] %></textarea>
+
+    <label for='adress-for-link' class='f-a-label'>Текст ссылки</label>
+    <textarea id='adress-for-link' class='js__edit-textarea f-a-area' name='values[text]'><%= content.part_content_text[:text] %></textarea>
+  </form>
+</div>

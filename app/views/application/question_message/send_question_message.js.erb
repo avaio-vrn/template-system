@@ -1,0 +1,16 @@
+var tmpl = <%= @which_form %>
+
+<% if @error %>
+  tmpl.html("<div class='form-submited'><h2 class='h2 error-color'>Сообщение не отправлено.</h2><span class='normal-txt'>Попробуйте позже или позвоните по телефону. Приносим извинения за неудобства.</span></div>");
+
+  if (yaMetrikaExists()) {
+    var name = "<%= params[:fromForm] == 'question' ? 'form.Question' : 'form.Order' %>"
+    window["yaCounter" + TS.vars.ymetrika].reachGoal(name + '.sendError')
+  }
+<% else %>
+  tmpl.html("<div class='form-submited'><h2 class='h2'>Сообщение отправлено.</h2><span class='normal-txt'>Мы скоро обязательно вам ответим.</span></div>");
+  if (yaMetrikaExists()) {
+    var name = "<%= params[:fromForm] == 'question' ? 'form.Question' : 'form.Order' %>"
+    window["yaCounter" + TS.vars.ymetrika].reachGoal(name + '.send')
+  }
+<% end %>

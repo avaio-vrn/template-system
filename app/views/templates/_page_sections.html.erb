@@ -1,0 +1,14 @@
+<%# just ERB  %>
+<% return nil if @content&.contentable.is_a? PageSection %>
+<% Array((@content&.contentable || @section)&.page_sections&.not_deleted&.ordering).each do |page| %>
+  <div class='card-cnt'>
+    <%= link_to [page.section, page], class: 'card-link' do %>
+      <figure class='card-img-cnt image'>
+        <%= image_tag page.image&.url(:medium) %>
+      </figure>
+      <div class='card-title-cnt'>
+        <%= content_tag :p, page.content_name, class: 'card-title' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

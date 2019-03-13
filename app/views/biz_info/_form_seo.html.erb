@@ -1,0 +1,23 @@
+<div class='path-12'>
+  <%= form_for(@biz_info, url: template_system.biz_info_path, html: { class:'form-add js__template-system' }, validate: true) do |f| %>
+    <%= render 'form_errors', object: f.object %>
+
+    <div class='path-6 clfl'>
+      <div class='f-a-left clfl'>
+        <span class='admin-title'>Счетчики</span>
+
+        <%= f.label :ym, class:'f-a-label' %>
+        <%= f.text_field :ym, class:'f-a-input' %>
+
+        <label class="f-a-checkbox marg">
+          <%= f.check_box :ym2 %>
+          <span class="f-a-checkbox-span"></span>
+          <%= content_tag :ym2, f.object.class.human_attribute_name(:ym2), class:"f-a-label" %>
+        </label>
+
+        <%= f.label :ga, class:'f-a-label' %>
+        <%= f.text_field :ga, class:'f-a-input' %>
+      </div>
+    </div>
+  <% end %>
+</div>

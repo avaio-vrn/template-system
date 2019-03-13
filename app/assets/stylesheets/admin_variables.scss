@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "OpenSans";
+  src: font-url("OpenSans-Regular.ttf") format("truetype"), font-url("OpenSans-Regular.woff") format("woff");
+}
+
+$admin-font: "OpenSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$admin-green: #08c534;
+$admin-red: #d24353;
+$admin-blue: #3890ba;
+$admin-yellow: #FFC437;

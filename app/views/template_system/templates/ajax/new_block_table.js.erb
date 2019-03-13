@@ -1,0 +1,11 @@
+$.spinner.remove();
+
+$(".template[data-index='<%= local_assigns[:item].row_num - 1 %>']").find('.js__btn-action.new-block')
+.before("<div class='admin-stroke js__spinner' data-id='new'>\
+        <a class='element-close element-close--inside remove-block' href='#' onclick='this.parentNode.remove();showButton(true);'></a>\
+        <%= j render partial: '/template_system/templates/form_block_table' %></div>");
+
+$.spinner.create();
+
+init_textarea();
+showButton(false);

@@ -1,0 +1,49 @@
+<%= content_for :h1, content_tag(:h1, t("#{params[:controller]}.#{params[:action]}.header_h1") + (@content_name_for_h1 || ''), class: config_get(:html, :h1_class)) %>
+
+<% @settings.actions.each_slice(3) do |group|  %>
+  <div class='template'>
+    <% group.each do |action|  %>
+      <div class='path-4 padd-lr <%= ' rel experiment' if action[:experiment] %>'>
+        <%= link_to action[:name], action[:url], class: 'content-link' %>
+        <p class='small-txt marg-lr--half noindent'>
+          <%= raw action[:description] %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div class='template'>
+  <h2 class='h2'>Для опытных пользователей</h2>
+</div>
+
+<% @settings.advanced_actions.each_slice(3) do |group|  %>
+  <div class='template'>
+    <% group.each do |action|  %>
+      <div class='path-4 padd-lr <%= ' rel experiment' if action[:experiment] %>'>
+        <%= link_to action[:name], action[:url], class: 'content-link' %>
+        <p class='small-txt marg-lr--half noindent'>
+          <%= raw action[:description] %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div class='template'>
+  <h2 class='h2'>Для продвинутых пользователей</h2>
+  <p class='normal-txt padd-lr error-color'>Использовать с осторожностью. Изменения могут нарушить работу сайта!</p>
+</div>
+
+<% @settings.critical_actions.each_slice(3) do |group|  %>
+  <div class='template'>
+    <% group.each do |action|  %>
+      <div class='path-4 padd-lr <%= ' rel experiment' if action[:experiment] %>'>
+        <%= link_to action[:name], action[:url], class: 'content-link' %>
+        <p class='small-txt marg-lr--half noindent'>
+          <%= raw action[:description] %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

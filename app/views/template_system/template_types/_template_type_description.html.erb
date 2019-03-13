@@ -1,0 +1,10 @@
+<% unless object.nil?  %>
+  <div class="temp-svg-container">  
+    <%= raw object.svg_content %>
+  </div>
+  <input type="submit" class="temp-submit js__template-submit fl-l" value="Применить" data-tt="<%= object.id %>" />
+  <!-- <a class="temp&#45;edit" href="#">Изменить шаблон</a> -->
+  <div class="clearfloat"> </div>
+  <span class="temp-title"><%= object.content_header %></span>
+  <span class="temp-desc"><%= object.content_text %></span>
+<% end %>

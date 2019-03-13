@@ -1,0 +1,16 @@
+<%= content_for :h1, content_tag(:h1, 'Карта сайта', class: config_get(:html, :h1_class))  %>
+
+<div class='template'>
+  <div class="path-0 n-lvl1">
+    <%= link_to 'Главная', '/', class: 'content-link'  %>
+  </div>
+</div>
+
+<% sitemap.items.each do |item| %>
+  <div class='template'>
+    <div class="path-0 n-lvl<%= sitemap.items_opts[item.object_id][:level] %>">
+      <% link_name = item.respond_to?('humanize') ? item.humanize : item.to_s %>
+      <%= link_to link_name, polymorphic_path(item.respond_to?(:invert_obj) ? item.invert_obj.select{ |r| r != 'admin' } : item), class: 'content-link'  %>
+    </div>
+  </div>
+<% end %>

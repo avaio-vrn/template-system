@@ -1,0 +1,98 @@
+<%= content_for :admin_javascripts do %>
+  <%= javascript_include_tag 'admin' %>
+  <%= javascript_tag 'initAdminPanel();' %>
+<% end %>
+<%= content_for :admin_stylesheets do %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+
+<div class='ts-admin-panel--bottom'>
+  <%= render_flashes %>
+</div>
+
+<div class='ts-admin-panel ts-admin-panel--left'>
+  <span class='ts-admin-panel-link js__panel-state'></span>
+  <div class='panel-content'>
+    <span class='panel-title'>Действия:</span>
+    <div class='panel-grad'>
+      <div class='panel-padd'>
+        <div class='panel-hover'>
+          <%= render 'admin/panel/left' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='panel-bottom'>
+    <%= content_tag :p, "v. #{TemplateSystem::VERSION}", class: 'ts-version' %>
+    <% if defined?(TsEshop) %>
+      <%= content_tag :p, "v. #{TsEshop::VERSION}", class: 'ts-version' %>
+    <% end %>
+    <%= link_to (content_tag(:span, '', class:'ts-icons icon-quit') << content_tag(:span, 'Выйти', class:'cell')), authentication_user.logout_path, class: :'admin-link' %>
+  </div>
+</div>
+
+<div class='ts-admin-panel ts-admin-panel--right'>
+  <span class='ts-admin-panel-link js__panel-state mirror-elem'></span>
+
+  <div class='ts-admin-panel--right-cnt'>
+    <div class='panel-top clfl'>
+      <span class='admin-top-link admin-top-link--active js__tab-link'>
+        Основные действия
+        <i><%= @admin_panel.actions_size(primary: true) %></i>
+      </span>
+      <span class='admin-top-link js__tab-link'>
+        Дополнительные действия
+        <i><%= @admin_panel.actions_size(primary: false) %></i>
+      </span>
+    </div>
+
+    <div class='panel-content'>
+
+      <span class='panel-title'>Основные действия:</span>
+      <div class='panel-grad'>
+        <div class='panel-padd'>
+          <div class='panel-hover'>
+            <div class='js__main-panel'>
+              <% @admin_panel.actions(primary: true).each do |href| %>
+                <% next if href.has_key?(:if) && !set_variables({ if: href[:if] })[:if] %>
+                <% next if href.has_key?(:unless) && set_variables({ unless: href[:unless] })[:unless] %>
+                <%= present_tag(set_variables(href), TemplateSystem::Admin::PanelPresenter).render %>
+              <% end %>
+            </div>
+            <div class='js__add-panel invisible'>
+              <% if @admin_panel.include_seo? %>
+                <%= present_tag(nil, TemplateSystem::Admin::PanelPresenter).render_seo(cnt: params[:controller].gsub('/', '_'), ac: params[:action], id_obj: params[:id]) %>
+              <% end %>
+              <% @admin_panel.actions(primary: false).each do |href| %>
+                <% next if href.has_key?(:if) && !set_variables({ if: href[:if] })[:if] %>
+                <% next if href.has_key?(:unless) && set_variables({ unless: href[:unless] })[:unless] %>
+                <%= present_tag(set_variables(href), TemplateSystem::Admin::PanelPresenter).render %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <% if @admin_panel.can_content_edit? %>
+      <div class='panel-bottom'>
+        <hr class='line' />
+        <%= link_to template_system.template_system_content_path(id: @admin_panel.obj.content.id), class: 'admin-link admin-link-double' do %>
+          <%= content_tag(:span, '', class:'ts-icons icon-edit') << content_tag(:span, 'Редактировать контент страницы', class:'cell') %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if controller_name == 'content' %>
+      <div class='panel-bottom'>
+        <hr class='line' />
+        <%= link_to polymorphic_path(@admin_panel.contentable), class: 'admin-link admin-link-double' do %>
+          <%= content_tag(:span, '', class:'ts-icons icon-apply') << content_tag(:span, 'Завершить редактирование', class:'cell') %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

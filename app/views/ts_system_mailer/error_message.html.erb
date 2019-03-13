@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style>
+      td{padding: 0 1em;}
+    </style>
+  </head>
+  <body>
+    <%= content_tag(:h2, "Ошибка приложения") %>
+    <%= content_tag(:h3, "Дата,время - #{I18n.l DateTime.now(), format: :long}") %>
+    <hr />
+    <table border="0">
+      <tbody>
+        <tr><td>Страница:</td><td><%= content_tag(:h4, @send_data[:request].referer) %></td></tr>
+        <tr><td>Формат:</td><td><%= content_tag(:h4, @send_data[:request].format) %></td></tr>
+        <tr><td>Параметры:</td><td><%= content_tag(:h4, @send_data[:request].params) %></td></tr>
+        <tr><td>Ошибка:</td><td> <%= content_tag(:h4, @send_data[:exception]) %></td></tr>
+        <tr><td>Backtrace:</td><td>
+            <% @send_data[:exception].backtrace.each do |line| %>
+              <%= content_tag(:p, line) %>
+            <% end %>
+        </td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

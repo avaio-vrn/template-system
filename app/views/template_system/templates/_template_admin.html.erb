@@ -1,0 +1,34 @@
+<% if !template.template_type.render.blank? %>
+  <% begin %>
+    <% f = File.open("app/views/templates/_#{template.template_type.render}.html.erb", 'r') %>
+  <% rescue %>
+    <% f = File.open("#{TemplateSystem::Engine.root}/app/views/templates/_#{template.template_type.render}.html.erb", 'r') %>
+  <% end %>
+  <% if f.readline.downcase =~ /just erb/ %>
+    <%= render "templates/#{template.template_type.render}" %>
+  <% else %>
+    <%# TODO multiline not work!  %>
+    <% f.rewind %>
+    <% content =  template.template_contents.order(:template_tag_id) %>
+    <% f.each do |row| %>
+      <% if row.include? "content[" %>
+        <%= present_tag(content[row.match(/content\[\d+/)[0].sub('content[','').to_i]).render_tag_admin %>
+      <% else %>
+        <%= render inline: row %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% elsif template.template_parts.blank? %>
+  <% template.template_contents.order(:template_tag_id).each do |content|  %>
+    <%= present_tag(content).render_tag_admin %>
+  <% end %>
+<% else %>
+  <% template.template_parts.each do |part| %>
+    <div class='<%= part.html_class %>'>
+      <% part.template_contents_get(template.id).each do |content|  %>
+        <%= present_tag(content).render_tag_admin %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+<%= render "admin/editing_buttons", item: template %>

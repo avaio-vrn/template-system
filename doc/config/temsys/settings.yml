@@ -1,0 +1,38 @@
+:main:
+  :version: Версия сайта
+  :base_title: Базовый заголовок для тега title
+  :with_main: (depr)Наличие index страницы с контентом(true/false)
+  :has_search: Наличие поиска на сайте(true/false)
+  :tovar_model_without_content_name: Модель товара без названия(true/false)
+  :tovar_model_stock: Возможность добавления скидки на товар(true/false)
+  :add_cart_flash: Вспывающее сообщение при добавления товара в корзину(true/false)
+  :edit_layout: Доступность редактирования макета сайта(true/false)
+  :gems: [:cocoon] Должен быть, даже если пустой
+:template_type_render:
+  :card_x3: Индивидуальные паршиалы
+:html:
+  :h1_class: Класс для заголовка h1
+:sitemap:
+  :all: [ section, page ]
+  :section:
+    :nested: [ page ]
+:image_settings:
+  thumb_image: 150x150
+  :convert_styles:
+    :thumb:
+      - 150x150
+      - :jpg
+    :sketch:
+      - 150x150
+      - :jpg
+    :medium:
+      - 500x500>
+      - :jpg
+    :big: 
+      - 800x600>
+      - :jpg
+  :convert_options:
+    :thumb: '-strip -background white -gravity center -extent 150x150'
+    :sketch: '-sketch 0x20+120'
+    :medium: '-quality 80 -strip -background white -flatten +matte'
+    :big: '-background white -flatten +matte'
