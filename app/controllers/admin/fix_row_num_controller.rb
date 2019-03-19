@@ -8,6 +8,7 @@ class Admin::FixRowNumController < ApplicationController
 
     @admin_panel = Admin::Panel::Base.new('fix_row_num')
     @admin_panel.from(controller_name, action_name)
+    @admin_panel.model_engine = :template_system
     @args_auto_fix = { model: params[:model], model_engine: params[:model_engine], model_namespace: params[:model_namespace],
                        opt: params[:opt], auto_fix_row_num: 1 }
     @args_cancel_fix = { model: params[:model], model_engine: params[:model_engine], model_namespace: params[:model_namespace],
